@@ -1,7 +1,9 @@
 import React from 'react';
 import {View, StyleSheet, Image, Button} from 'react-native';
+import 'react-native-gesture-handler';
 
-const App = () => {
+const App = props => {
+  const {navigation} = props;
   return (
     <>
       <View style={styles.contenedor}>
@@ -10,7 +12,11 @@ const App = () => {
             style={styles.formatologo}
             source={require('./recursos/Logo_S_fondo.png')}
           />
-          <Button title="COMENZAR" color={'#5F6E72'}></Button>
+          <Button
+            title="COMENZAR"
+            color={'#5F6E72'}
+            onPress={() => navigation.navigate('registro')}
+          />
         </View>
       </View>
     </>
@@ -19,7 +25,7 @@ const App = () => {
 const styles = StyleSheet.create({
   formatologo: {
     width: '100%',
-    height: 170,
+    height: 175,
     marginVertical: 100,
   },
   contenedor: {
