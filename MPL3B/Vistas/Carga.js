@@ -12,7 +12,6 @@ const Carga = ({navegacion}) => {
             style={styles.formatologo}
             source={require('./recursos/Logo_S_fondo.png')}
           />
-          <Button title="COMENZAR" color={'#5F6E72'} onPress={()=>navegacion.navigate('Registro')}/>
         </View>
       </View>
     </>

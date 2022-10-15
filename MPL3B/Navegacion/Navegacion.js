@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 import Registro from '../Vistas/Registro';
 import Login from '../Vistas/Login';
 import Carga from '../Vistas/Carga';
