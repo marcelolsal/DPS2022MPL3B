@@ -1,16 +1,15 @@
 import React from 'react';
 import {View, Text,TextInput, StyleSheet, Image, Button} from 'react-native';
 
-
 const RecupeContra = () => {
   return (
     <>
       <View style={styles.contenedor}>
         <View style={styles.caja1}>
           <Text style={styles.title}>¿Has olvidado tu contraseña?</Text>
-          <Text style={styles.lab}>Contraseña:</Text>   
+          <Text style={styles.lab}>Usuario o Correo</Text>   
           <TextInput style={styles.datos}></TextInput>       
-          <Button style={styles.boton} title="Iniciar Sesión" color={'#5F6E72'}></Button>
+          <Button style={styles.boton} title="Recuperar" color={'#5F6E72'}></Button>
         </View>
       </View>
     </>

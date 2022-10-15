@@ -1,5 +1,6 @@
 import React from 'react';
-import {View, Text,TextInput, StyleSheet, Image, Button} from 'react-native';
+import { View, Text,TextInput, StyleSheet, Image, Button} from 'react-native';
+
 
 
 const Login = () => {
@@ -7,19 +8,42 @@ const Login = () => {
     <>
       <View style={styles.contenedor}>
         <View style={styles.caja1}>
-          <Text style={styles.title}>Ingresar</Text>
-          <Text style={styles.lema}>Inicia sesión para continuar</Text>
-          <Text style={styles.lab}>Usuario:</Text>
-          <TextInput style={styles.datos}></TextInput>
+          <Text style={styles.title}>Iniciar Sesión</Text>
+         <Text style={styles.lema}>Inicia sesión para continuar</Text>
+          <Text style={styles.lab}>Usuario:</Text>   
+          <TextInput style={styles.datos}></TextInput>  
           <Text style={styles.lab}>Contraseña:</Text>   
           <TextInput style={styles.datos}></TextInput>       
           <Button style={styles.boton} title="Iniciar Sesión" color={'#5F6E72'}></Button>
+        <Text style={styles.remind}>¿Has olviddado la contraseña?</Text>
+       
+        <Button title={'Sign in with Google'} onPress={() =>  {
+    GoogleSignin.configure({
+        androidClientId: 'ADD_YOUR_ANDROID_CLIENT_ID_HERE',
+        iosClientId: 'ADD_YOUR_iOS_CLIENT_ID_HERE',
+    });
+         GoogleSignin.hasPlayServices().then((hasPlayService) => {
+        if (hasPlayService) {
+             GoogleSignin.signIn().then((userInfo) => {
+                       console.log(JSON.stringify(userInfo))
+             }).catch((e) => {
+             console.log("ERROR IS: " + JSON.stringify(e));
+             })
+        }
+}).catch((e) => {
+    console.log("ERROR IS: " + JSON.stringify(e));
+})
+}} />
         </View>
       </View>
     </>
   );
 };
-const styles = StyleSheet.create({ 
+const styles = StyleSheet.create({
+    remind:{
+        margin: 10,
+        textAlign: 'center'
+    }, 
   boton:{
    height:500
   },
@@ -65,3 +89,4 @@ const styles = StyleSheet.create({
   },
 });
 export default Login;
+
