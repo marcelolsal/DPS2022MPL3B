@@ -1,24 +1,28 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
-import { View, StyleSheet, Image, Button, Text } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import {View, StyleSheet, Image, Button} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
-export default function Splash(){
+export default function Splash() {
   const navigation = useNavigation();
 
   return (
     <>
       <View style={styles.contenedor}>
-          <View style={styles.caja1}>
-            <Image
-                style={styles.formatologo}
-                source={require('../recursos/Logo_S_fondo.png')}
-            />
-            <Button title="COMENZAR" color={'#5F6E72'} onPress={() => navigation.navigate('Login')}></Button>
-          </View>
-      </View> 
+        <View style={styles.caja1}>
+          <Image
+            style={styles.formatologo}
+            source={require('../recursos/Logo_S_fondo.png')}
+          />
+          <Button
+            title="COMENZAR"
+            color={'#5F6E72'}
+            onPress={() => navigation.navigate('Login')}/>
+        </View>
+      </View>
     </>
   );
-};
+}
 
 const styles = StyleSheet.create({
   formatologo: {
