@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import Registro from '../Vistas/Registro';
-import Login from '../Vistas/Login';
+import Registro from '../views/Registro';
+import Login from '../views/Login';
 import Carga from '../Vistas/Carga';
 
 const Stack = createStackNavigator();
