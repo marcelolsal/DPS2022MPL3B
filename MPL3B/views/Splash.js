@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react/self-closing-comp */
 import React from 'react';
-import { View, StyleSheet, Image, Button, Text } from 'react-native';
+import { View, StyleSheet, Image, Button} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 export default function Splash() {
