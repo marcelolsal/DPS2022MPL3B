@@ -1,6 +1,6 @@
-/* eslint-disable prettier/prettier */
 import * as React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {View, StyleSheet, Image, Button} from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './Login';
 import Splash from './Splash';
 import Index from './Index';
