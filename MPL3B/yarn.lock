@@ -5992,7 +5992,15 @@
   "resolved" "https://registry.npmjs.org/react-native-table-component/-/react-native-table-component-1.2.2.tgz"
   "version" "1.2.2"
 
-"react-native@*", "react-native@>=0.57", "react-native@0.70.2":
+"react-native-vector-icons@*":
+  "integrity" "sha512-wKYLaFuQST/chH3AJRjmOLoLy3JEs1JR6zMNgTaemFpNoXs0ztRnTxcxFD9xhX7cJe1/zoN5BpQYe7kL0m5yyA=="
+  "resolved" "https://registry.npmjs.org/react-native-vector-icons/-/react-native-vector-icons-9.2.0.tgz"
+  "version" "9.2.0"
+  dependencies:
+    "prop-types" "^15.7.2"
+    "yargs" "^16.1.1"
+
+"react-native@*", "react-native@>=0.42.0", "react-native@>=0.57", "react-native@0.70.2":
   "integrity" "sha512-c0Usl1Lc4pApDI66wpHwX8SGBUqXouQ8Z8Q9gX4jBjnmO5E8Vmlv6IM0CWDqbX/tn+aKNHCBLqV5phnCqusGbw=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.70.2.tgz"
   "version" "0.70.2"
