@@ -2,8 +2,12 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, Text, TextInput, StyleSheet, Button} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const RecupeContra = () => {
+
+  const navigation = useNavigation();
+
   return (
     <>
       <View style={styles.contenedor}>
@@ -14,12 +18,15 @@ const RecupeContra = () => {
           <Button
             style={styles.boton}
             title="Recuperar"
-            color={'#5F6E72'}></Button>
+            color={'#5F6E72'}
+            onPress={() => {navigation.navigate('Login')}}
+            ></Button>
         </View>
       </View>
     </>
   );
 };
+
 const styles = StyleSheet.create({
   boton: {
     height: 500,

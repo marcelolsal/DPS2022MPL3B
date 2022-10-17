@@ -46,8 +46,25 @@ const Login = () => {
            onChangeText={(text) => formik.setFieldValue('password', text)} placeholder='Ingrese la contraseña' style={styles.datos}></TextInput>    
              
           <Button onPress={formik.handleSubmit}  title="Iniciar Sesión" color={'#5F6E72'}></Button>
-        <Text style={styles.remind} >¿Has olviddado la contraseña?</Text>
-       
+        <Text style={styles.remind} onPress={() => {navigation.navigate('Recuperacion')}}>¿Has olviddado la contraseña?</Text>
+        <Button title={'Sign in with Google'} onPress={() =>  {
+            GoogleSignin.configure({
+                androidClientId: 'ADD_YOUR_ANDROID_CLIENT_ID_HERE',
+                iosClientId: 'ADD_YOUR_iOS_CLIENT_ID_HERE',
+            });
+
+            GoogleSignin.hasPlayServices().then((hasPlayService) => {
+              if (hasPlayService) {
+                GoogleSignin.signIn().then((userInfo) => {
+                    console.log(JSON.stringify(userInfo))
+                  }).catch((e) => {
+                    console.log("ERROR IS: " + JSON.stringify(e));
+                  })
+              }
+        }).catch((e) => {
+            console.log("ERROR IS: " + JSON.stringify(e));
+        })
+        }} />
         <Text style={styles.errors}>{formik.errors.username}</Text>
         <Text style={styles.errors}>{formik.errors.password}</Text>
         </View>
