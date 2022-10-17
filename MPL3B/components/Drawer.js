@@ -3,6 +3,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import Splash from "../views/Splash";
 import CatalogoExamenes from "../views/catalogoExamenes";
 import Citas from "../views/tablaCitas";
+import Perfil from "../views/Perfil";
 
 const Drawer = createDrawerNavigator();
 
