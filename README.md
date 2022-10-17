@@ -22,3 +22,6 @@ Manual de usuario-- https://www.canva.com/design/DAFPOgKbjFo/1jgJhoEP1yAkAec7DuC
 Mouckuops-- https://www.canva.com/design/DAFLrgfPmDs/LpxZch-9s5Fq8wz1PJhE5w/edit?utm_content=DAFLrgfPmDs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 Trello-- https://trello.com/invite/b/qaSaktWz/ATTI0ff355a9ec522e19289d58ae5dafbd41AA0452B4/myprolab-3b
+
+## Video funcional 50%
+link--
