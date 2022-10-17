@@ -1,12 +1,49 @@
-import React from 'react';
-import { View, StyleSheet, Image, Button, Text } from 'react-native';
-import 'react-native-gesture-handler';
-import Drawer from '../components/Drawer';
+import * as React from 'react';
+import { Text, View, StyleSheet, Image } from 'react-native';
+
 
 const Index = () => {
   return (
-        <Drawer />
+    <View style={styles.container}>
+      <Text style={styles.headText}>
+        Anuncios/Promociones
+      </Text>
+      <Image style={styles.img} source={require('../assets/lab-img.jpg')} />
+      <Text style={styles.paragraph}></Text>
+      <Image style={styles.img} source={require('../assets/doctor-img.jpg')} />
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 24,
+    height: 450,
+    backgroundColor: '#F5EEF8'
+  },
+  headText: {
+    margin: 24,
+    marginTop: 0,
+    fontSize: 22,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    maxHeight: 50
+  },
+  paragraph: {
+    margin: 24,
+    marginTop: 0,
+    fontSize: 14,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    maxHeight: 50
+  },
+  img: {
+    resizeMode: 'cover',
+    width: '100%',
+    height: 150
+  }
+});
 
 export default Index;
