@@ -1,15 +1,18 @@
 import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import Splash from "../views/Splash";
-import CatalogoExamenes from "../views/catalogoExamenes";
-import Citas from "../views/tablaCitas";
+import Noticias from "../views/Noticias";
+import CatalogoExamenes from "../views/CatalogoExamenes";
+import Citas from "../views/TablaCitas";
+import Login from "../views/Login";
+import Perfil from "../views/Perfil";
+import { Button } from "react-native";
 
 const Drawer = createDrawerNavigator();
 
 const Menu = () => {
     return(
         <Drawer.Navigator>
-            <Drawer.Screen name="Index" component={Splash} />
+            <Drawer.Screen name="Inicio" component={Noticias} />
             <Drawer.Screen name="Examenes" component={CatalogoExamenes} />
             <Drawer.Screen name="Citas" component={Citas} />
         </Drawer.Navigator>

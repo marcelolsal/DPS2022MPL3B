@@ -1,8 +1,8 @@
-import React from "react";
+/* import React from "react";
 import {StyleSheet,Text,View,Image} from 'react-native';
-import { MaterialCommunityIcons } from 'react-vector-icons';
+import { MaterialCommunityIcons, MaterialIcons, FontAwesome } from 'react-native-vector-icons';
 
-export default function Perfil({user}) {
+export default function Perfil() {
     return(
     <>
 
@@ -109,4 +109,4 @@ paddingLeft:295
 });
 
 
-
+ */

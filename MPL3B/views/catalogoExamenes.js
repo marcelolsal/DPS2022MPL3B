@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {View, StyleSheet} from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import {Table, Row, Rows} from 'react-native-table-component';
 
 const testGrid = () => {
@@ -38,12 +39,12 @@ const testGrid = () => {
     ]
   };
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
         <Row data={testTableData.tableHead} style={styles.head} textStyle={styles.headText}/>
         <Rows data={testTableData.tableData} textStyle={styles.text}/>
       </Table>
-    </View>
+    </ScrollView>
   );
 }
 
