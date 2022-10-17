@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import { Table, Row, Rows } from 'react-native-table-component';
+import {View, StyleSheet} from 'react-native';
+import {Table, Row, Rows} from 'react-native-table-component';
 
 const testGrid = () => {
   const testTableData = {
