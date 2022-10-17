@@ -1,14 +1,17 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, StyleSheet, Text,Button, TextInput,ScrollView} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
-const Registro = ({navegacion}) => {
+const Registro = () => {
+  const navigation = useNavigation();
+
   return (
     <>
       <ScrollView style={styles.contenedor}>
         <View style={styles.caja1}>
 <Text style={styles.title}>Crear una cuenta nueva</Text>
-<Text style={styles.subtitle} >¿Ya te has Registrado?</Text><Text style={styles.subtitle2}>
+<Text style={styles.subtitle} >¿Ya te has Registrado?</Text><Text style={styles.subtitle2} >
   Ingresa aqui para iniciar sesion
 </Text>
 <Text>
