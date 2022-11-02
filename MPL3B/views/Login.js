@@ -1,9 +1,9 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
-import { View, Text,TextInput, StyleSheet, Image, Button} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import {View, Text, TextInput, StyleSheet, Button} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 const Login = () => {
-
   const navigation = useNavigation();
 
   return (
@@ -11,66 +11,81 @@ const Login = () => {
       <View style={styles.contenedor}>
         <View style={styles.caja1}>
           <Text style={styles.title}>Iniciar Sesión</Text>
-         <Text style={styles.lema}>Inicia sesión para continuar</Text>
-          <Text style={styles.lab}>Usuario:</Text>   
-          <TextInput style={styles.datos}></TextInput>  
-          <Text style={styles.lab}>Contraseña:</Text>   
-          <TextInput style={styles.datos}></TextInput>       
-          <Button style={styles.boton} title="Iniciar Sesión" color={'#5F6E72'} onPress={() => navigation.navigate('Index')}></Button>
-        <Text style={styles.remind} onPress={() => navigation.navigate('Recuperacion')}>¿Has olviddado la contraseña?</Text>
-       
-        <Button title={'Sign in with Google'} onPress={() =>  {
-    GoogleSignin.configure({
-        androidClientId: 'ADD_YOUR_ANDROID_CLIENT_ID_HERE',
-        iosClientId: 'ADD_YOUR_iOS_CLIENT_ID_HERE',
-    });
-         GoogleSignin.hasPlayServices().then((hasPlayService) => {
-        if (hasPlayService) {
-             GoogleSignin.signIn().then((userInfo) => {
-                       console.log(JSON.stringify(userInfo))
-             }).catch((e) => {
-             console.log("ERROR IS: " + JSON.stringify(e));
-             })
-        }
-}).catch((e) => {
-    console.log("ERROR IS: " + JSON.stringify(e));
-})
-}} />
+          <Text style={styles.lema}>Inicia sesión para continuar</Text>
+          <Text style={styles.lab}>Usuario:</Text>
+          <TextInput style={styles.datos} />
+          <Text style={styles.lab}>Contraseña:</Text>
+          <TextInput style={styles.datos} />
+          <Button
+            style={styles.boton}
+            title="Iniciar Sesión"
+            color={'#5F6E72'}
+            onPress={() => navigation.navigate('Index')} />
+          <Text
+            style={styles.remind}
+            onPress={() => navigation.navigate('Recuperacion')}>
+            ¿Has olviddado la contraseña?
+          </Text>
+
+          <Button
+            title={'Sign in with Google'}
+            onPress={() => {
+              GoogleSignin.configure({
+                androidClientId: 'ADD_YOUR_ANDROID_CLIENT_ID_HERE',
+                iosClientId: 'ADD_YOUR_iOS_CLIENT_ID_HERE',
+              });
+              GoogleSignin.hasPlayServices()
+                .then(hasPlayService => {
+                  if (hasPlayService) {
+                    GoogleSignin.signIn()
+                      .then(userInfo => {
+                        console.log(JSON.stringify(userInfo));
+                      })
+                      .catch(e => {
+                        console.log('ERROR IS: ' + JSON.stringify(e));
+                      });
+                  }
+                })
+                .catch(e => {
+                  console.log('ERROR IS: ' + JSON.stringify(e));
+                });
+            }}
+          />
         </View>
       </View>
     </>
   );
 };
 const styles = StyleSheet.create({
-    remind:{
-        margin: 10,
-        textAlign: 'center'
-    }, 
-  boton:{
-   height:500
+  remind: {
+    margin: 10,
+    textAlign: 'center',
   },
-  lab:{
+  boton: {
+    height: 500,
+  },
+  lab: {
     color: 'black',
     fontSize: 15,
-    marginBottom:10
+    marginBottom: 10,
   },
-  title:{
+  title: {
     fontSize: 35,
     textAlign: 'center',
     color: 'black',
     marginTop: 50,
-    marginBottom: 20
+    marginBottom: 20,
   },
-  datos:{
-  borderWidth:1,
-  marginBottom:30,
+  datos: {
+    borderWidth: 1,
+    marginBottom: 30,
   },
-  lema:{
+  lema: {
     fontSize: 20,
     marginTop: 10,
     marginBottom: 20,
     textAlign: 'center',
-    color: 'black'
+    color: 'black',
   },
   formatologo: {
     width: '100%',
@@ -91,4 +106,3 @@ const styles = StyleSheet.create({
   },
 });
 export default Login;
-
