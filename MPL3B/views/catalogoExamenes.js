@@ -1,7 +1,6 @@
-/* eslint-disable react-native/no-inline-styles */
-/* eslint-disable prettier/prettier */
 import * as React from 'react';
 import {View, StyleSheet} from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import {Table, Row, Rows} from 'react-native-table-component';
 
 const testGrid = () => {
@@ -27,7 +26,7 @@ const testGrid = () => {
       ['Glucosa Post-Prandial', 'No', '$2.00'],
       ['Hb. Glicosilada <A1c>', 'No', '$12.00'],
       ['Fructosamina', 'Si', '$12.00'],
-      ["Test de O'Sullivan", 'Si', '$12.00'],
+      ['Test de O\'Sullivan', 'Si', '$12.00'],
       ['Curva Glucosa <2 HORAS>', 'Si', '$15.00'],
       ['Curva Glucosa <3 HORAS>', 'Si', '$17.00'],
       ['Curva Glucosa <4 HORAS>', 'Si', '$19.00'],
@@ -36,45 +35,42 @@ const testGrid = () => {
       ['BUN', 'Si', '$2.50'],
       ['Creatinina + Tasa Filtración Glomerular', 'No', '$3.00'],
       ['Ácido Úrico', 'Si', '$2.50'],
-      ['Colesterol Total', 'Si', '$2.50'],
-    ],
+      ['Colesterol Total', 'Si', '$2.50']
+    ]
   };
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
-        <Row
-          data={testTableData.tableHead}
-          style={styles.head}
-          textStyle={styles.headText}
-        />
-        <Rows data={testTableData.tableData} textStyle={styles.text} />
+        <Row data={testTableData.tableHead} style={styles.head} textStyle={styles.headText}/>
+        <Rows data={testTableData.tableData} textStyle={styles.text}/>
       </Table>
-    </View>
+    </ScrollView>
   );
-};
+}
+
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-    paddingTop: 30,
-    backgroundColor: '#fff',
-  },
-  head: {
-    height: 40,
-    backgroundColor: '#27AE60',
-  },
-  headText: {
-    color: '#fff',
-    fontWeight: 'bold',
-    paddingLeft: 4,
-    textAlign: 'center',
-    fontSize: 12,
-  },
-  text: {
-    margin: 6,
-    fontSize: 12,
-  },
+    container: {
+        flex: 1,
+        padding: 16,
+        paddingTop: 30,
+        backgroundColor: '#fff'
+    },
+    head: {
+        height: 40,
+        backgroundColor: '#27AE60'
+    },
+    headText: {
+        color: '#fff',
+        fontWeight: 'bold',
+        paddingLeft: 4,
+        textAlign: 'center',
+        fontSize: 12
+    },
+    text: {
+        margin: 6,
+        fontSize: 12
+    }
 });
 
 export default testGrid;
