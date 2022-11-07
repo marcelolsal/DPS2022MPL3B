@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native';
-import Drawer from '../components/Drawer'
-
 
 const Noticias = () => {
   return (

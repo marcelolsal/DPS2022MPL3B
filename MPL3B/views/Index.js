@@ -5,7 +5,7 @@ import Drawer from '../components/Drawer'
 
 const Index = () => {
   return (
-    <Drawer />
+    <Drawer/>
   );
 }
 
