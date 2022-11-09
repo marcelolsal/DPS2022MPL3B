@@ -3,6 +3,8 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import Noticias from '../views/Noticias';
 import CatalogoExamenes from '../views/catalogoExamenes';
 import tablaCitas from '../views/tablaCitas';
+import Archivo from '../views/Archivos';
+import DropdownComponent from '../views/EstadoCitas';
 const Drawer = createDrawerNavigator();
 
 const Menu = () => {
