@@ -62,6 +62,7 @@ const Registro = () => {
 <Button
             title="REGISTRAR"
             color={'#5F6E72'}
+            onPress={() => navigation.navigate('Login')}
           />
 
         </View>
