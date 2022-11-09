@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import * as React from 'react';
-import {StyleSheet, TouchableOpacity, Text} from 'react-native';
+import {StyleSheet, TouchableOpacity, Text,View} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import {Table, Row, Rows} from 'react-native-table-component';
 
