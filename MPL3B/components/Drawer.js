@@ -4,6 +4,8 @@ import { createDrawerNavigator, DrawerContentScrollView } from '@react-navigatio
 import Noticias from '../views/Noticias';
 import CatalogoExamenes from '../views/catalogoExamenes';
 import tablaCitas from '../views/tablaCitas';
+import Archivo from '../views/Archivos';
+import DropdownComponent from '../views/EstadoCitas';
 import Perfil from '../views/Perfil';
 import CS from '../views/Login';
 import {StyleSheet, Text,TouchableOpacity} from 'react-native';

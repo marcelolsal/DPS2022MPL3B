@@ -131,6 +131,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 30,
     fontSize: 22,
+  color: 'black',
   },
   lema: {
     fontSize: 20,
