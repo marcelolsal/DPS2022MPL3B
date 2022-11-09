@@ -1,40 +1,28 @@
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {Text, View, StyleSheet, Image} from 'react-native';
+import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const App = () => {
   return (
     <View>
       <View style={[styles.contenedor, {flexDirection: 'column'}]}>
-        <View style={styles.caja}>
-          <Icon name="home" size={40} color="black" />
-          <Icon
-            name="notifications"
-            style={styles.notificacion}
-            size={30}
-            color="black"
-          />
-        </View>
-
         <View style={styles.caja2}>
           <Image
-            style={{width: 150, height: 150, borderRadius: 80}}
+            style={styles.img1}
+            source={require('../recursos/perfil.png')}
           />
-
-          <View style={styles.nombre}>
-            <Text style={{fontSize: 20}}>Hi! Mariella Chicas</Text>
-            <Text style={{fontSize: 18, paddingLeft: 10}}>Editar Perfil</Text>
-          </View>
         </View>
 
-        <View style={styles.caja3}></View>
-
+        <View style={styles.caja3}/>
+        <Text style={{fontSize: 18, paddingLeft: 50, padding: 2}}>
+          Informacion Personal
+        </Text>
+        <TouchableOpacity>
+          <Image style={styles.img} source={require('../recursos/edit.png')} />
+        </TouchableOpacity>
         <View style={styles.caja4}>
-          <Text style={{fontSize: 18, paddingLeft: 100, padding: 2}}>
-            Informacion Personal
-          </Text>
-          <Text></Text>
           <Text style={{fontSize: 16, padding: 4}}>Nombre Completo:</Text>
           <Text style={{fontSize: 16, padding: 4}}>Edad:</Text>
           <Text style={{fontSize: 16, padding: 4}}>Genero:</Text>
@@ -45,7 +33,7 @@ const App = () => {
         </View>
 
         <View style={styles.caja5}>
-          <Text style={{fontSize: 15, textAlign: 'center'}}>
+          <Text style={{fontSize: 15, textAlign: 'center', marginVertical: 90}}>
             Derechos reservados
           </Text>
         </View>
@@ -58,12 +46,11 @@ const styles = StyleSheet.create({
   contenedor: {
     backgroundColor: '#b5c8cd',
     padding: 4,
-    marginVertical: 35,
+    marginVertical: 1,
   },
 
   caja: {
     marginVertical: 10,
-    minHeight: 15,
     flexDirection: 'row',
   },
 
@@ -93,13 +80,26 @@ const styles = StyleSheet.create({
   },
 
   caja5: {
-    marginVertical: 90,
+    marginVertical: 150,
     padding: 10,
   },
 
   notificacion: {
     right: '1%',
     paddingLeft: 295,
+  },
+  img: {
+    resizeMode: 'cover',
+    width: '5%',
+    height: 20,
+    right: '1%',
+    marginLeft: 350,
+    marginVertical: -22,
+  },
+  img1: {
+    width: '50%',
+    height: 200,
+    marginLeft: -25,
   },
 });
 export default App;
