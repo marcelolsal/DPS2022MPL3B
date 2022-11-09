@@ -74,12 +74,12 @@ const tablaCitas = () => {
         mainColor: '#008000',
         textSecondaryColor: '#008000',
         borderColor: '#002A00',
+        borderWidth:1,
       }}
       onSelectedChange={date => setSelectedDate(date)}
       current="2022-01-01"
       minimumDate="2022-01-01"
       maximumDate="2030-12-31"
-      minimumTime="08:00"
     />
 
     <TouchableOpacity
