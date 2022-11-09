@@ -10,6 +10,8 @@ const Noticias = () => {
       <Image style={styles.img} source={require('../recursos/doctor-img.jpg')} />
       <Text style={styles.paragraph}></Text>
       <Image style={styles.img} source={require('../recursos/lab-img.jpg')} />
+
+      
     </View>
   );
 }

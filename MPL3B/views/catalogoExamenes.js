@@ -1,5 +1,6 @@
+/* eslint-disable prettier/prettier */
 import * as React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import {Table, Row, Rows} from 'react-native-table-component';
 
