@@ -32,6 +32,9 @@ const Login = () => {
         <View style={styles.caja1}>
           <Text style={styles.title}>Iniciar Sesión</Text>
           <Text style={styles.lema}>Inicia sesión para continuar</Text>
+          <Text style={styles.lema2}>Si no tienes cuenta haz clic <Text style={styles.lema3} onPress={() => {
+              navigation.navigate('Registro');
+            }}>Aqui </Text></Text>
           <Text style={styles.lab}>Usuario:</Text>
           <TextInput
             value={formik.values.username}
@@ -142,6 +145,20 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     textAlign: 'center',
     color: 'black',
+  },
+  lema2: {
+    fontSize: 15,
+    marginTop: 5,
+    marginBottom: 20,
+    textAlign: 'center',
+    color: 'black',
+  },
+  lema3: {
+    fontSize: 15,
+    marginTop: 5,
+    marginBottom: 20,
+    textAlign: 'center',
+    color: 'blue',
   },
   formatologo: {
     width: '100%',

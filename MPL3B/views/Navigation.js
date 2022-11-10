@@ -18,7 +18,7 @@ const Navigation = () => {
       <Stack.Navigator>
         <Stack.Screen options={{headerShown: false}} name="Splash" component={Splash} />
         <Stack.Screen options={{headerShown: false}} name="Login" component={Login} />
-        <Stack.Screen options={{headerShown: false}} name="Registro" component={Registro} />
+        <Stack.Screen  name="Registro" component={Registro} />
         <Stack.Screen options={{headerShown: false, gestureEnabled: false}} name="Index" component={Index} />
         <Stack.Screen options={{headerShown: false, gestureEnabled: false}} name="Index2" component={Index2} />
         <Stack.Screen name="Recuperacion de contraseña" component={Recuperacion} />
