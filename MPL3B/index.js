@@ -12,5 +12,5 @@ import testGrid from './views/catalogoExamenes';
 import {name as appName} from './app.json';
 import tablaCitas from './views/tablaCitas';
 
-AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerComponent(appName, () => isPermitted);
 

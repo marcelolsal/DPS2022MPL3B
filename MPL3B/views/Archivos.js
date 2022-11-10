@@ -10,17 +10,47 @@ import {
   PermissionsAndroid,
   Platform,
   TextInput,
+  TouchableHighlight,
+  Alert
+
 } from 'react-native';
+import { Dropdown } from 'react-native-element-dropdown';
 
 // Import HTML to PDF
-import RNHTMLtoPDF from 'react-native-html-to-pdf';
+import RNHTMLtoPDF, { convert } from 'react-native-html-to-pdf';
+
 
 const Archivo = () => {
-  const [filePath, setFilePath] = useState('');
+    var hora = new Date().getHours(); //To get the Current Date
+    var segundos = new Date().getSeconds(); //To get the Current Date
+    var minutos = new Date().getMinutes(); //To get the Current Date
+    var dia = new Date().getDate(); //To get the Current Date
+  const [filePath, setFilePath] = useState();
   const [namefile, setNameFile] = useState('');
   const [examen, setText1] = useState('');
   const [resultado, setResultado] = useState('');
   const fecha = new Date().toLocaleDateString();
+  const [value, setValue] = useState(null);
+  const [value1, setValue1] = useState(null);
+  const [estado, setEstado] = useState('');
+  const [estado1, setEstado1] = useState('');
+    const data = [
+    { label: 'Pendiente', value: '1' },
+    { label: 'En proceso', value: '2' },
+    { label: 'Entregado', value: '3' }
+  ];
+  const data1 = [
+    { label1: 'Pendiente', value1: '1' },
+    { label1: 'En proceso', value1: '2' },
+    { label1: 'Entregado', value1: '3' }
+  ];
+  const onPress = () => {
+    console.log(estado)
+    };
+    
+  const onPress1 = () => {
+    console.log(estado1)
+    };
 
   const isPermitted = async () => {
     if (Platform.OS === 'android') {
@@ -42,8 +72,23 @@ const Archivo = () => {
     }
   };
 
+  const renderItem1 = (item1: any) => {
+    return (
+      <View style={styles.item}>
+        <Text style={styles.textItem}>{item1.label1}</Text>
+      </View>
+    );
+  };
+  const renderItem = (item: any) => {
+    return (
+      <View style={styles.item}>
+        <Text style={styles.textItem}>{item.label}</Text>
+      </View>
+    );
+  };
   const createPDF = async () => {
     if (await isPermitted()) {
+        
       let options = {
         //Content to print
         html: `
@@ -52,9 +97,9 @@ const Archivo = () => {
         <h1 style="text-align: center; "><strong>MyProlab3M</strong></h1>
         <div style=" width:100%; height: 100px; margin: 10px">
     	<div style="width:49%; height: 100px; display: inline-block;">
-                   <p>Paciente: ${namefile} </p>
-                   <p>Edad: ${namefile} </p>
-                   <p>Genero: ${namefile} </p>                   
+                   <p>Paciente: ${estado1} </p>
+                   <p>Edad: ${estado1} </p>
+                   <p>Genero: ${estado1} </p>                   
       </div>
       
 	    <div style=" width:49%; height: 100px; display:inline-block;">
@@ -69,7 +114,7 @@ const Archivo = () => {
          <div>
          <div style=" width:100%; height: 100px;">
 	       <div style=" width:50%; height: 100px; display: inline-block;">
-                  <p> ${examen}</p>
+                  <p> ${estado}</p>
                    </div>
 	      <div style=" blue; width:24.5%; height: 100px; display:inline-block;">
                    <p> ${resultado}</p> 
@@ -81,15 +126,17 @@ const Archivo = () => {
         </div>       
         </body>
         `,
+        
         //File Name
-        fileName: namefile,
+        fileName: estado1+`${dia}`+`${hora}`+`${minutos}`+`${segundos}`,
         //File directory
         directory: 'docs',
       };
       let file = await RNHTMLtoPDF.convert(options);
       console.log(file.filePath);
-      console.log(namefile);
-      console.log(examen);
+      console.log(estado);
+      console.log(estado1);
+      Alert.alert('El archivo del examen se genero con éxito');
       setFilePath(file.filePath);
     }
   };
@@ -98,27 +145,75 @@ const Archivo = () => {
     <SafeAreaView style={{flex: 1}}>
       <Text style={styles.titleText}>Resultados de Examenes</Text>
       <View style={styles.container}>
-        <View style={styles.campos}>
-          <Text style={styles.titleText}>Nombre del Documento:</Text>
-          <TextInput
-            style={styles.Tipunt}
-            type="text"
-            onChangeText={setNameFile}></TextInput>
-          <Text style={styles.textStyle}>Ingrese el tipo de examen</Text>
-          <TextInput
-            style={styles.Tipunt}
-            type="text"
-            onChangeText={setText1}></TextInput>
-          <Text style={styles.textStyle}>Ingrese los resultados</Text>
-          <TextInput
-            multiline={true}
-            numberOfLines={4}
-            style={styles.Tarea}
-            type="text"
-            onChangeText={setResultado}></TextInput>
+
+       <View style={styles.campos}>
+      <View style={styles.formestado}> 
+      <Text style={styles.fontform}>Seleccione el Usuario</Text>
+      <Dropdown
+        style={styles.dropdown}
+        placeholderStyle={styles.placeholderStyle}
+        selectedTextStyle={styles.selectedTextStyle}
+        inputSearchStyle={styles.inputSearchStyle}
+        iconStyle={styles.iconStyle}
+        value={value1}
+        data={data1}
+        search
+        maxHeight={300}
+        labelField="label1"
+        valueField="value1"
+        placeholder="Elige el usuario"
+        searchPlaceholder="Search..."
+        onChange={item1 => {
+          setValue1(item1.value1);
+          setEstado1(item1.label1);
+        }}
+        renderItem={renderItem1}
+      />
+      <TouchableHighlight onPress={onPress1}>
+        <View style={styles.btnestado}>
+         <Text style={styles.txtbtnestado}>Seleccionar</Text> 
         </View>
+      </TouchableHighlight>      
+      </View>
+      <View style={styles.formestado}> 
+      <Text style={styles.fontform}>Seleccione el Examen</Text>
+      <Dropdown
+        style={styles.dropdown}
+        placeholderStyle={styles.placeholderStyle}
+        selectedTextStyle={styles.selectedTextStyle}
+        inputSearchStyle={styles.inputSearchStyle}
+        iconStyle={styles.iconStyle}
+        value={value}
+        data={data}
+        search
+        maxHeight={300}
+        labelField="label"
+        valueField="value"
+        placeholder="Elige el examen"
+        searchPlaceholder="Search..."
+        onChange={item => {
+          setValue(item.value);
+          setEstado(item.label);
+        }}
+        renderItem={renderItem}
+      />
+      <TouchableHighlight onPress={onPress}>
+        <View style={styles.btnestado}>
+         <Text style={styles.txtbtnestado}>Seleccionar</Text> 
+        </View>
+      </TouchableHighlight>      
+      </View>
+       <Text style={styles.textStyle}>Ingrese los resultados</Text>
+       <TextInput 
+       multiline={true}
+       numberOfLines ={4}
+       style={styles.Tarea} 
+       type='text' 
+       onChangeText={setResultado}></TextInput>
+       </View>
+
         <TouchableOpacity onPress={createPDF}>
-          <View>
+          <View style={styles.cradoc}>
             <Image
               //We are showing the Image from online
               source={{
@@ -126,10 +221,11 @@ const Archivo = () => {
               }}
               style={styles.imageStyle}
             />
-            <Text style={styles.textStyle}>Crear PDF con resultados</Text>
+
+            <Text style={styles.textStyle}>Crear PDF</Text>
+
           </View>
         </TouchableOpacity>
-        <Text style={styles.textStyle}>{filePath}</Text>
       </View>
     </SafeAreaView>
   );
@@ -138,11 +234,43 @@ const Archivo = () => {
 export default Archivo;
 
 const styles = StyleSheet.create({
-  container: {
+ 
+    fontform:{
+        fontSize: 20,
+        color: 'black'
+    },
+    dropdown: {
+
+        margin: 16,
+        width: '80%',
+        height: 50,
+        backgroundColor: 'white',
+        borderRadius: 12,
+        borderColor: 'green',
+        padding: 12,
+        shadowColor: '#000',
+        shadowOffset: {
+          width: 0,
+          height: 1,
+        },
+        shadowOpacity: 0.2,
+        shadowRadius: 1.41,
+        elevation: 2,
+      },
+    container: {
     flex: 1,
     padding: 10,
     backgroundColor: '#fff',
     alignItems: 'center',
+  },
+  formestado:{
+   borderRadius: 10,
+   minHeight: 200,
+   justifyContent: 'center',
+   alignItems: 'center',
+   borderColor: 'green',
+   borderWidth: 1,
+   marginBottom: 10,
   },
   titleText: {
     fontSize: 22,
@@ -159,22 +287,67 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   imageStyle: {
-    marginLeft: 50,
-    width: 120,
-    height: 100,
-    margin: 15,
+
+    width: 50,
+    height: 50,
+    marginBottom: 5,
+
     resizeMode: 'stretch',
   },
   campos: {
     minHeight: '50%',
-  },
-  Tipunt: {
+
+    width: '80%'
+  },Tipunt:{
+
     borderWidth: 1,
+    borderColor: 'green',
     color: 'black',
   },
   Tarea: {
     borderWidth: 1,
     textAlign: 'left',
     color: 'black',
+
+    borderColor: 'green',
+}
+  ,
+  placeholderStyle: {
+    fontSize: 16,
+    color: 'gray'
   },
+  selectedTextStyle: {
+    fontSize: 16,
+    color: 'black'
+  },
+  iconStyle: {
+    width: 20,
+    height: 20,
+  },
+  inputSearchStyle: {
+    height: 40,
+    fontSize: 16,
+    color: 'black'
+  },
+  btnestado:{
+    borderWidth: 1,
+    borderColor: 'green',
+    padding: 5,
+    width:100,
+    borderRadius: 5,
+    color: '#B2D9B2'
+  },
+  textItem: {
+    flex: 1,
+    fontSize: 16,
+    color: 'black'
+  },txtbtnestado:{
+    textAlign:'center',
+    color: 'black'
+}, cradoc:{
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 50,
+}
+
 });
