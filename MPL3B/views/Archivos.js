@@ -11,7 +11,8 @@ import {
   Platform,
   TextInput,
   TouchableHighlight,
-  Alert
+  Alert,
+  ScrollView
 
 } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
@@ -142,6 +143,7 @@ const Archivo = () => {
   };
 
   return (
+    <ScrollView>
     <SafeAreaView style={{flex: 1}}>
       <Text style={styles.titleText}>Resultados de Examenes</Text>
       <View style={styles.container}>
@@ -222,12 +224,13 @@ const Archivo = () => {
               style={styles.imageStyle}
             />
 
-            <Text style={styles.textStyle}>Crear PDF</Text>
+            <Text style={styles.textStyle}>Crear PDF con los Resultados</Text>
 
           </View>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
+    </ScrollView>
   );
 };
 
