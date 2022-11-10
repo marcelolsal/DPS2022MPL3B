@@ -2,7 +2,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import {Text, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 
 const App = () => {
   return (
@@ -23,12 +22,12 @@ const App = () => {
           <Image style={styles.img} source={require('../recursos/edit.png')} />
         </TouchableOpacity>
         <View style={styles.caja4}>
-          <Text style={{fontSize: 16, padding: 4}}>Nombre Completo:</Text>
-          <Text style={{fontSize: 16, padding: 4}}>Edad:</Text>
-          <Text style={{fontSize: 16, padding: 4}}>Genero:</Text>
-          <Text style={{fontSize: 16, padding: 4}}>Fecha de Nacimiento:</Text>
-          <Text style={{fontSize: 16, padding: 4}}>Numero de telefono:</Text>
-          <Text style={{fontSize: 16, padding: 4}}>Correo Electronico:</Text>
+          <Text style={{fontSize: 16, padding: 4}}>Nombre Completo: Mariella Chicas</Text>
+          <Text style={{fontSize: 16, padding: 4}}>Edad: 23</Text>
+          <Text style={{fontSize: 16, padding: 4}}>Genero: Femenino</Text>
+          <Text style={{fontSize: 16, padding: 4}}>Fecha de Nacimiento: 14-02-2000</Text>
+          <Text style={{fontSize: 16, padding: 4}}>Numero de telefono: 2225-5696</Text>
+          <Text style={{fontSize: 16, padding: 4}}>Correo Electronico: Mariella Chicas</Text>
           <Text></Text>
         </View>
 

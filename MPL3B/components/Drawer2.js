@@ -8,22 +8,23 @@ import Archivo from '../views/Archivos';
 import DropdownComponent from '../views/EstadoCitas';
 import Perfil from '../views/Perfil';
 import CS from '../views/Login';
-import {StyleSheet, Text,TouchableOpacity, BackHandler} from 'react-native';
+import {StyleSheet, Text,TouchableOpacity} from 'react-native';
 import RNRestart from 'react-native-restart';
-const Drawer = createDrawerNavigator();
+import tablaCitas2 from '../views/CitasAdmin';
+const Drawer2 = createDrawerNavigator();
 
 const Menu = () => {
   return (
-    <Drawer.Navigator
+    <Drawer2.Navigator
     drawerContent={(props) => <MenuItems{ ...props }/>}>
-      <Drawer.Screen name="Inicio" component={Noticias}/>
-      <Drawer.Screen name="Catalogo de Examenes" component={CatalogoExamenes} />
-      <Drawer.Screen name="Nueva Cita/Historial de Citas" component={tablaCitas} />
-      <Drawer.Screen name="Perfil" component={Perfil} />
-      <Drawer.Screen  options={{ headerShown:false }} name="CS" component={CS} />
-    </Drawer.Navigator>
+      <Drawer2.Screen name="Inicio" component={Noticias}/>
+      <Drawer2.Screen name="Catalogo de Examenes" component={CatalogoExamenes} />
+      <Drawer2.Screen name="Historial de Citas" component={tablaCitas2} />
+      <Drawer2.Screen name="Perfil" component={Perfil} />
+      <Drawer2.Screen  options={{ headerShown:false }} name="CS" component={CS} />
+    </Drawer2.Navigator>
   );
-}; 
+};
 
 const MenuItems = ({navigation})=>{
 return (
@@ -41,8 +42,8 @@ return (
   </TouchableOpacity>
   <TouchableOpacity
   style={styles.button3}
-  onPress={() => navigation.navigate('Nueva Cita/Historial de Citas')}>
-  <Text style={styles.text1}>Nueva Cita/Historial de Citas</Text>
+  onPress={() => navigation.navigate('Historial de Citas')}>
+  <Text style={styles.text1}>Historial de Citas</Text>
   </TouchableOpacity>
   <TouchableOpacity
   style={styles.button3}

@@ -4,8 +4,10 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from './Login';
 import Splash from './Splash';
 import Index from './Index';
+import Index2 from './Index2';
 import Recuperacion from './RecuperacionContra';
 import Registro from './Registro';
+import EstadoAdmin from './EstadoCitas';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,7 +19,9 @@ const Navigation = () => {
         <Stack.Screen options={{headerShown: false}} name="Login" component={Login} />
         <Stack.Screen options={{headerShown: false}} name="Registro" component={Registro} />
         <Stack.Screen options={{headerShown: false, gestureEnabled: false}} name="Index" component={Index} />
+        <Stack.Screen options={{headerShown: false, gestureEnabled: false}} name="Index2" component={Index2} />
         <Stack.Screen name="Recuperacion de contraseña" component={Recuperacion} />
+        <Stack.Screen name="Estado de Citas" component={EstadoAdmin} />
       </Stack.Navigator>
     </>
   );
