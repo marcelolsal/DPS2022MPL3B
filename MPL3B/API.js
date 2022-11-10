@@ -1,11 +1,27 @@
-const API = "http://localhost:4000/";
+import { useState, useEffect } from "react";
 
-export const searchUser = async (username) => {
-    const res = await fetch(`${API}/user/${username}`,{
-        method: "GET",
-        headers: {"Accept":"application/json","Content-Type":"application/json"}
-    });
-    return await res.json();
+const API = "http://192.168.0.6:4000";
+
+export const searchUser = (username) => {
+    const [res, setRes] = useState('');
+    const response = async () => {
+        try {
+            const response = await fetch(`${API}/user/${username}`, {
+                method: "GET",
+                headers: { "Accept": "application/json", "Content-Type": "application/json" }
+            });
+            const json = await response.json();
+            setRes(json);
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setLoading(false);
+        }
+    }
+    useEffect(() => {
+        response();
+    }, []);
+    return res;
 };
 
 export const deleteUser = async (id) => {

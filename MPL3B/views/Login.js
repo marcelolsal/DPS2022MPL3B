@@ -1,30 +1,33 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {View, Text, TextInput, StyleSheet, Image, Button} from 'react-native';
+import { View, Text, TextInput, StyleSheet, Image, Button } from 'react-native';
+import { useState } from 'react';
+import { searchUser } from '../API';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
-import {useNavigation} from '@react-navigation/native';
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import { useNavigation } from '@react-navigation/native';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
 import {user, userDetails} from './userBD';
 
 const Login = () => {
-  const navigation = useNavigation();
 
-  const formik = useFormik({
-    initialValues: initialValues(),
-    validationSchema: Yup.object(validationSchema()),
-    validateOnChange: false,
-    onSubmit: formValue => {
-      const {username, password} = formValue;
-      if (username !== user.username || password !== user.password) {
-        console.log('Error');
-      } else {
-        console.log('Login correcto');
-        navigation.navigate('Index2');
-      }
-    },
-  });
+  const navigation = useNavigation();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+
+
+  function loginUser(login_username) {
+    let userData = searchUser(login_username);
+    console.log(userData)
+    
+    if (userData.username == username && userData.password == password) {
+      navigation.navigate('Index2');
+    }else {
+      console.log('credenciales incorrectas.')
+    }
+  }
 
   return (
     <>
@@ -34,20 +37,20 @@ const Login = () => {
           <Text style={styles.lema}>Inicia sesión para continuar</Text>
           <Text style={styles.lab}>Usuario:</Text>
           <TextInput
-            value={formik.values.username}
-            onChangeText={text => formik.setFieldValue('username', text)}
+            value={username}
+            onChangeText={(username) => {setUsername(username)}}
             placeholder="Ingrese su usuario"
             style={styles.datos}></TextInput>
           <Text style={styles.lab}>Contraseña:</Text>
           <TextInput
-            value={formik.values.password}
+            value={password}
+            onChangeText={(password) => {setPassword(password)}}
             secureTextEntry={true}
-            onChangeText={text => formik.setFieldValue('password', text)}
             placeholder="Ingrese la contraseña"
             style={styles.datos}></TextInput>
 
           <Button
-            onPress={formik.handleSubmit}
+            onPress={loginUser(username)}
             title="Iniciar Sesión"
             color={'#5F6E72'}></Button>
           <Text
@@ -83,27 +86,13 @@ const Login = () => {
                 });
             }}
           />
-          <Text style={styles.errors}>{formik.errors.username}</Text>
-          <Text style={styles.errors}>{formik.errors.password}</Text>
+          
         </View>
       </View>
     </>
   );
 };
 
-function validationSchema() {
-  return {
-    username: Yup.string().required('El usuario es Obligatorio'),
-    password: Yup.string().required('El pasword es Obligatorio'),
-  };
-}
-
-function initialValues() {
-  return {
-    username: '',
-    password: '',
-  };
-}
 
 const styles = StyleSheet.create({
   remind: {
