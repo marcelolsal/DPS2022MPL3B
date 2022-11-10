@@ -3,7 +3,7 @@ const { db } = require("../firebase");
 
 const router = Router();
 
-router.get('/users', async (req, res) => {
+router.get('/user', async (req, res) => {
     const querySnapshot = await db.collection('users').get();
     
     const users = querySnapshot.docs.map(doc => ({
@@ -13,10 +13,10 @@ router.get('/users', async (req, res) => {
 
     console.log(users)
 
-    res.send("Hello");
+    res.send(JSON.stringify(users));
 });
 
-router.post('/new-user', async (req, res) => {
+router.post('/user/create', async (req, res) => {
 
     const { username, name, birthday, cellphone, email} = req.body;
 
@@ -31,23 +31,33 @@ router.post('/new-user', async (req, res) => {
     res.send("User created");
 });
 
-router.get('/user/:id', async (req, res) => {
-
-    const doc = await db.collection('users').doc(req.params.id).get();
-
-    console.log(doc.data());
-
-    res.send("User");
+router.get('/user/:username', async (req, res) => {
+    const querySnapshot = await db.collection('users').get();
+    const users = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+    }));
+    var status = false;
+    users.forEach(user => {
+        if(user.username == req.params.username){
+            user.msg="success";
+            res.send(JSON.stringify(user));
+            status=true;
+        }
+    });
+    if(!status){
+        res.send({"msg":"error"});
+    }
 });
 
-router.get('/delete-user/:id', async (req, res) => {
+router.get('/user/delete/:id', async (req, res) => {
     
     await db.collection('users').doc(req.params.id).delete();
 
     res.send("User deleted");
 });
 
-router.post('/update-user/:id', async (req, res) => {
+router.post('/user/update:id', async (req, res) => {
 
     console.log(req.params.id);
     console.log(req.body);
