@@ -9,9 +9,8 @@ import {
   Image,
   PermissionsAndroid,
   Platform,
-  TextInput
+  TextInput,
 } from 'react-native';
-
 
 // Import HTML to PDF
 import RNHTMLtoPDF from 'react-native-html-to-pdf';
@@ -42,7 +41,7 @@ const Archivo = () => {
       return true;
     }
   };
-  
+
   const createPDF = async () => {
     if (await isPermitted()) {
       let options = {
@@ -83,7 +82,7 @@ const Archivo = () => {
         </body>
         `,
         //File Name
-        fileName: namefile ,
+        fileName: namefile,
         //File directory
         directory: 'docs',
       };
@@ -97,25 +96,27 @@ const Archivo = () => {
 
   return (
     <SafeAreaView style={{flex: 1}}>
-      <Text style={styles.titleText}>
-        Resultados de Examenes
-      </Text>
+      <Text style={styles.titleText}>Resultados de Examenes</Text>
       <View style={styles.container}>
-       <View style={styles.campos}>
-       <Text style={styles.titleText}>
-        Nombre del Documento: 
-      </Text>
-      <TextInput style={styles.Tipunt} type='text' onChangeText={setNameFile}></TextInput>
-       <Text style={styles.textStyle}>Ingrese el tipo de examen</Text>
-       <TextInput style={styles.Tipunt} type='text' onChangeText={setText1}></TextInput>
-       <Text style={styles.textStyle}>Ingrese los resultados</Text>
-       <TextInput 
-       multiline={true}
-       numberOfLines ={4}
-       style={styles.Tarea} 
-       type='text' 
-       onChangeText={setResultado}></TextInput>
-       </View>
+        <View style={styles.campos}>
+          <Text style={styles.titleText}>Nombre del Documento:</Text>
+          <TextInput
+            style={styles.Tipunt}
+            type="text"
+            onChangeText={setNameFile}></TextInput>
+          <Text style={styles.textStyle}>Ingrese el tipo de examen</Text>
+          <TextInput
+            style={styles.Tipunt}
+            type="text"
+            onChangeText={setText1}></TextInput>
+          <Text style={styles.textStyle}>Ingrese los resultados</Text>
+          <TextInput
+            multiline={true}
+            numberOfLines={4}
+            style={styles.Tarea}
+            type="text"
+            onChangeText={setResultado}></TextInput>
+        </View>
         <TouchableOpacity onPress={createPDF}>
           <View>
             <Image
@@ -125,7 +126,7 @@ const Archivo = () => {
               }}
               style={styles.imageStyle}
             />
-            <Text style={styles.textStyle}>Create PDF</Text>
+            <Text style={styles.textStyle}>Crear PDF con resultados</Text>
           </View>
         </TouchableOpacity>
         <Text style={styles.textStyle}>{filePath}</Text>
@@ -158,18 +159,22 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   imageStyle: {
-    width: 150,
+    marginLeft: 50,
+    width: 120,
     height: 100,
-    margin: 5,
+    margin: 15,
     resizeMode: 'stretch',
-  },campos:{
+  },
+  campos: {
     minHeight: '50%',
-  },Tipunt:{
+  },
+  Tipunt: {
     borderWidth: 1,
     color: 'black',
-  },Tarea:{
+  },
+  Tarea: {
     borderWidth: 1,
     textAlign: 'left',
     color: 'black',
-  }
+  },
 });

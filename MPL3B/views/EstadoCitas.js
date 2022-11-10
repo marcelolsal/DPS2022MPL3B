@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import {Dropdown} from 'react-native-element-dropdown';
 import {TextInput} from 'react-native-gesture-handler';
+import {useNavigation} from '@react-navigation/native';
 const data1 = [
   {
     usuario: 'Juan01',
@@ -60,6 +61,7 @@ const data = [
 ];
 
 const DropdownComponent = () => {
+  const navigation = useNavigation();
   const [value, setValue] = useState(null);
   const [value1, setValue1] = useState(null);
   const [estado, setEstado] = useState('');
@@ -188,6 +190,9 @@ const DropdownComponent = () => {
               </View>
             </TouchableHighlight>
           </View>
+          <TouchableOpacity style={styles.button2}  onPress={() => navigation.navigate('Archivos')}>
+            <Text style={styles.text1}>Generar PDF con Resultados</Text>
+          </TouchableOpacity>
           <TouchableOpacity style={styles.button3}>
             <Text style={styles.text1}>Subir Resultados</Text>
           </TouchableOpacity>
@@ -200,6 +205,16 @@ const DropdownComponent = () => {
 export default DropdownComponent;
 
 const styles = StyleSheet.create({
+  button2: {
+    margin:0,
+    marginTop:20,
+    marginRight:10,
+    marginLeft:0,
+    alignItems: 'center',
+    backgroundColor: '#B2D9B2',
+    padding: 10,
+    borderRadius: 25,
+  },
   button3: {
     margin:0,
     marginTop:20,
