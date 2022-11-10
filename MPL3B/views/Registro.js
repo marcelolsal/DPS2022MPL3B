@@ -11,7 +11,9 @@ const Registro = () => {
       <ScrollView style={styles.contenedor}>
         <View style={styles.caja1}>
 <Text style={styles.title}>Crear una cuenta nueva</Text>
-<Text style={styles.subtitle} >¿Ya te has Registrado?</Text><Text style={styles.subtitle2} >
+<Text style={styles.subtitle} >¿Ya te has Registrado?</Text><Text style={styles.subtitle2} onPress={() => {
+              navigation.navigate('Login');
+            }}>
   Ingresa aqui para iniciar sesion
 </Text>
 <Text>
