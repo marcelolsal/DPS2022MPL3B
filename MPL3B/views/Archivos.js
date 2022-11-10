@@ -12,9 +12,9 @@ import {
   TextInput,
   TouchableHighlight,
   Alert
+
 } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
-
 
 // Import HTML to PDF
 import RNHTMLtoPDF, { convert } from 'react-native-html-to-pdf';
@@ -71,6 +71,7 @@ const Archivo = () => {
       return true;
     }
   };
+
   const renderItem1 = (item1: any) => {
     return (
       <View style={styles.item}>
@@ -142,10 +143,9 @@ const Archivo = () => {
 
   return (
     <SafeAreaView style={{flex: 1}}>
-      <Text style={styles.titleText}>
-        Resultados de Examenes
-      </Text>
+      <Text style={styles.titleText}>Resultados de Examenes</Text>
       <View style={styles.container}>
+
        <View style={styles.campos}>
       <View style={styles.formestado}> 
       <Text style={styles.fontform}>Seleccione el Usuario</Text>
@@ -211,6 +211,7 @@ const Archivo = () => {
        type='text' 
        onChangeText={setResultado}></TextInput>
        </View>
+
         <TouchableOpacity onPress={createPDF}>
           <View style={styles.cradoc}>
             <Image
@@ -220,7 +221,9 @@ const Archivo = () => {
               }}
               style={styles.imageStyle}
             />
+
             <Text style={styles.textStyle}>Crear PDF</Text>
+
           </View>
         </TouchableOpacity>
       </View>
@@ -284,21 +287,28 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   imageStyle: {
+
     width: 50,
     height: 50,
     marginBottom: 5,
+
     resizeMode: 'stretch',
-  },campos:{
+  },
+  campos: {
     minHeight: '50%',
+
     width: '80%'
   },Tipunt:{
+
     borderWidth: 1,
     borderColor: 'green',
     color: 'black',
-  },Tarea:{
+  },
+  Tarea: {
     borderWidth: 1,
     textAlign: 'left',
     color: 'black',
+
     borderColor: 'green',
 }
   ,
@@ -339,4 +349,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 50,
 }
+
 });
