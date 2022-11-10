@@ -8,6 +8,7 @@ import Index2 from './Index2';
 import Recuperacion from './RecuperacionContra';
 import Registro from './Registro';
 import EstadoAdmin from './EstadoCitas';
+import Archivo from './Archivos';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,6 +23,7 @@ const Navigation = () => {
         <Stack.Screen options={{headerShown: false, gestureEnabled: false}} name="Index2" component={Index2} />
         <Stack.Screen name="Recuperacion de contraseña" component={Recuperacion} />
         <Stack.Screen name="Estado de Citas" component={EstadoAdmin} />
+        <Stack.Screen name="Archivos" component={Archivo} />
       </Stack.Navigator>
     </>
   );
