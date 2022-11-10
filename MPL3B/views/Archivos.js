@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, {useState} from 'react';
 // Import required components
 import {
@@ -12,20 +13,18 @@ import {
   TextInput,
   TouchableHighlight,
   Alert,
-  ScrollView
-
+  ScrollView,
 } from 'react-native';
-import { Dropdown } from 'react-native-element-dropdown';
+import {Dropdown} from 'react-native-element-dropdown';
 
 // Import HTML to PDF
-import RNHTMLtoPDF, { convert } from 'react-native-html-to-pdf';
-
+import RNHTMLtoPDF, {convert} from 'react-native-html-to-pdf';
 
 const Archivo = () => {
-    var hora = new Date().getHours(); //To get the Current Date
-    var segundos = new Date().getSeconds(); //To get the Current Date
-    var minutos = new Date().getMinutes(); //To get the Current Date
-    var dia = new Date().getDate(); //To get the Current Date
+  var hora = new Date().getHours(); //To get the Current Date
+  var segundos = new Date().getSeconds(); //To get the Current Date
+  var minutos = new Date().getMinutes(); //To get the Current Date
+  var dia = new Date().getDate(); //To get the Current Date
   const [filePath, setFilePath] = useState();
   const [namefile, setNameFile] = useState('');
   const [examen, setText1] = useState('');
@@ -35,23 +34,23 @@ const Archivo = () => {
   const [value1, setValue1] = useState(null);
   const [estado, setEstado] = useState('');
   const [estado1, setEstado1] = useState('');
-    const data = [
-    { label: 'Pendiente', value: '1' },
-    { label: 'En proceso', value: '2' },
-    { label: 'Entregado', value: '3' }
+  const data = [
+    {label: 'Pendiente', value: '1'},
+    {label: 'En proceso', value: '2'},
+    {label: 'Entregado', value: '3'},
   ];
   const data1 = [
-    { label1: 'Pendiente', value1: '1' },
-    { label1: 'En proceso', value1: '2' },
-    { label1: 'Entregado', value1: '3' }
+    {label1: 'Pendiente', value1: '1'},
+    {label1: 'En proceso', value1: '2'},
+    {label1: 'Entregado', value1: '3'},
   ];
   const onPress = () => {
-    console.log(estado)
-    };
-    
+    console.log(estado);
+  };
+
   const onPress1 = () => {
-    console.log(estado1)
-    };
+    console.log(estado1);
+  };
 
   const isPermitted = async () => {
     if (Platform.OS === 'android') {
@@ -89,7 +88,6 @@ const Archivo = () => {
   };
   const createPDF = async () => {
     if (await isPermitted()) {
-        
       let options = {
         //Content to print
         html: `
@@ -127,9 +125,9 @@ const Archivo = () => {
         </div>       
         </body>
         `,
-        
+
         //File Name
-        fileName: estado1+`${dia}`+`${hora}`+`${minutos}`+`${segundos}`,
+        fileName: estado1 + `${dia}` + `${hora}` + `${minutos}` + `${segundos}`,
         //File directory
         directory: 'docs',
       };
@@ -144,92 +142,89 @@ const Archivo = () => {
 
   return (
     <ScrollView>
-    <SafeAreaView style={{flex: 1}}>
-      <Text style={styles.titleText}>Resultados de Examenes</Text>
-      <View style={styles.container}>
-
-       <View style={styles.campos}>
-      <View style={styles.formestado}> 
-      <Text style={styles.fontform}>Seleccione el Usuario</Text>
-      <Dropdown
-        style={styles.dropdown}
-        placeholderStyle={styles.placeholderStyle}
-        selectedTextStyle={styles.selectedTextStyle}
-        inputSearchStyle={styles.inputSearchStyle}
-        iconStyle={styles.iconStyle}
-        value={value1}
-        data={data1}
-        search
-        maxHeight={300}
-        labelField="label1"
-        valueField="value1"
-        placeholder="Elige el usuario"
-        searchPlaceholder="Search..."
-        onChange={item1 => {
-          setValue1(item1.value1);
-          setEstado1(item1.label1);
-        }}
-        renderItem={renderItem1}
-      />
-      <TouchableHighlight onPress={onPress1}>
-        <View style={styles.btnestado}>
-         <Text style={styles.txtbtnestado}>Seleccionar</Text> 
-        </View>
-      </TouchableHighlight>      
-      </View>
-      <View style={styles.formestado}> 
-      <Text style={styles.fontform}>Seleccione el Examen</Text>
-      <Dropdown
-        style={styles.dropdown}
-        placeholderStyle={styles.placeholderStyle}
-        selectedTextStyle={styles.selectedTextStyle}
-        inputSearchStyle={styles.inputSearchStyle}
-        iconStyle={styles.iconStyle}
-        value={value}
-        data={data}
-        search
-        maxHeight={300}
-        labelField="label"
-        valueField="value"
-        placeholder="Elige el examen"
-        searchPlaceholder="Search..."
-        onChange={item => {
-          setValue(item.value);
-          setEstado(item.label);
-        }}
-        renderItem={renderItem}
-      />
-      <TouchableHighlight onPress={onPress}>
-        <View style={styles.btnestado}>
-         <Text style={styles.txtbtnestado}>Seleccionar</Text> 
-        </View>
-      </TouchableHighlight>      
-      </View>
-       <Text style={styles.textStyle}>Ingrese los resultados</Text>
-       <TextInput 
-       multiline={true}
-       numberOfLines ={4}
-       style={styles.Tarea} 
-       type='text' 
-       onChangeText={setResultado}></TextInput>
-       </View>
-
-        <TouchableOpacity onPress={createPDF}>
-          <View style={styles.cradoc}>
-            <Image
-              //We are showing the Image from online
-              source={{
-                uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/pdf.png',
-              }}
-              style={styles.imageStyle}
-            />
-
-            <Text style={styles.textStyle}>Crear PDF con los Resultados</Text>
-
+      <SafeAreaView style={{flex: 1}}>
+        <Text style={styles.titleText}>Resultados de Examenes</Text>
+        <View style={styles.container}>
+          <View style={styles.campos}>
+            <View style={styles.formestado}>
+              <Text style={styles.fontform}>Seleccione el Usuario</Text>
+              <Dropdown
+                style={styles.dropdown}
+                placeholderStyle={styles.placeholderStyle}
+                selectedTextStyle={styles.selectedTextStyle}
+                inputSearchStyle={styles.inputSearchStyle}
+                iconStyle={styles.iconStyle}
+                value={value1}
+                data={data1}
+                search
+                maxHeight={300}
+                labelField="label1"
+                valueField="value1"
+                placeholder="Elige el usuario"
+                searchPlaceholder="Search..."
+                onChange={item1 => {
+                  setValue1(item1.value1);
+                  setEstado1(item1.label1);
+                }}
+                renderItem={renderItem1}
+              />
+              <TouchableHighlight onPress={onPress1}>
+                <View style={styles.btnestado}>
+                  <Text style={styles.txtbtnestado}>Seleccionar</Text>
+                </View>
+              </TouchableHighlight>
+            </View>
+            <View style={styles.formestado}>
+              <Text style={styles.fontform}>Seleccione el Examen</Text>
+              <Dropdown
+                style={styles.dropdown}
+                placeholderStyle={styles.placeholderStyle}
+                selectedTextStyle={styles.selectedTextStyle}
+                inputSearchStyle={styles.inputSearchStyle}
+                iconStyle={styles.iconStyle}
+                value={value}
+                data={data}
+                search
+                maxHeight={300}
+                labelField="label"
+                valueField="value"
+                placeholder="Elige el examen"
+                searchPlaceholder="Search..."
+                onChange={item => {
+                  setValue(item.value);
+                  setEstado(item.label);
+                }}
+                renderItem={renderItem}
+              />
+              <TouchableHighlight onPress={onPress}>
+                <View style={styles.btnestado}>
+                  <Text style={styles.txtbtnestado}>Seleccionar</Text>
+                </View>
+              </TouchableHighlight>
+            </View>
+            <Text style={styles.textStyle}>Ingrese los resultados</Text>
+            <TextInput
+              multiline={true}
+              numberOfLines={4}
+              style={styles.Tarea}
+              type="text"
+              onChangeText={setResultado}></TextInput>
           </View>
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
+
+          <TouchableOpacity onPress={createPDF}>
+            <View style={styles.cradoc}>
+              <Image
+                source={{
+                  uri: 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/pdf.png',
+                }}
+                style={styles.imageStyle}
+              />
+
+              <Text style={styles.textStyle}>Crear PDF con los Resultados</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
     </ScrollView>
   );
 };
@@ -237,43 +232,41 @@ const Archivo = () => {
 export default Archivo;
 
 const styles = StyleSheet.create({
- 
-    fontform:{
-        fontSize: 20,
-        color: 'black'
+  fontform: {
+    fontSize: 20,
+    color: 'black',
+  },
+  dropdown: {
+    margin: 16,
+    width: '80%',
+    height: 50,
+    backgroundColor: 'white',
+    borderRadius: 12,
+    borderColor: 'green',
+    padding: 12,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
     },
-    dropdown: {
-
-        margin: 16,
-        width: '80%',
-        height: 50,
-        backgroundColor: 'white',
-        borderRadius: 12,
-        borderColor: 'green',
-        padding: 12,
-        shadowColor: '#000',
-        shadowOffset: {
-          width: 0,
-          height: 1,
-        },
-        shadowOpacity: 0.2,
-        shadowRadius: 1.41,
-        elevation: 2,
-      },
-    container: {
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+    elevation: 2,
+  },
+  container: {
     flex: 1,
     padding: 10,
     backgroundColor: '#fff',
     alignItems: 'center',
   },
-  formestado:{
-   borderRadius: 10,
-   minHeight: 200,
-   justifyContent: 'center',
-   alignItems: 'center',
-   borderColor: 'green',
-   borderWidth: 1,
-   marginBottom: 10,
+  formestado: {
+    borderRadius: 10,
+    minHeight: 200,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderColor: 'green',
+    borderWidth: 1,
+    marginBottom: 10,
   },
   titleText: {
     fontSize: 22,
@@ -290,7 +283,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   imageStyle: {
-
     width: 50,
     height: 50,
     marginBottom: 5,
@@ -300,9 +292,9 @@ const styles = StyleSheet.create({
   campos: {
     minHeight: '50%',
 
-    width: '80%'
-  },Tipunt:{
-
+    width: '80%',
+  },
+  Tipunt: {
     borderWidth: 1,
     borderColor: 'green',
     color: 'black',
@@ -313,15 +305,14 @@ const styles = StyleSheet.create({
     color: 'black',
 
     borderColor: 'green',
-}
-  ,
+  },
   placeholderStyle: {
     fontSize: 16,
-    color: 'gray'
+    color: 'gray',
   },
   selectedTextStyle: {
     fontSize: 16,
-    color: 'black'
+    color: 'black',
   },
   iconStyle: {
     width: 20,
@@ -330,27 +321,28 @@ const styles = StyleSheet.create({
   inputSearchStyle: {
     height: 40,
     fontSize: 16,
-    color: 'black'
+    color: 'black',
   },
-  btnestado:{
+  btnestado: {
     borderWidth: 1,
     borderColor: 'green',
     padding: 5,
-    width:100,
+    width: 100,
     borderRadius: 5,
-    color: '#B2D9B2'
+    color: '#B2D9B2',
   },
   textItem: {
     flex: 1,
     fontSize: 16,
-    color: 'black'
-  },txtbtnestado:{
-    textAlign:'center',
-    color: 'black'
-}, cradoc:{
+    color: 'black',
+  },
+  txtbtnestado: {
+    textAlign: 'center',
+    color: 'black',
+  },
+  cradoc: {
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 50,
-}
-
+  },
 });
