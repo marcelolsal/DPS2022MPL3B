@@ -1,23 +1,33 @@
 import React from 'react';
-import {View, Text,TextInput, StyleSheet, Image, Button} from 'react-native';
+import {View, Text, TextInput, StyleSheet, Button} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const RecupeContra = () => {
+
+  const navigation = useNavigation();
+
   return (
     <>
       <View style={styles.contenedor}>
         <View style={styles.caja1}>
           <Text style={styles.title}>¿Has olvidado tu contraseña?</Text>
-          <Text style={styles.lab}>Usuario o Correo</Text>   
-          <TextInput style={styles.datos}></TextInput>       
-          <Button style={styles.boton} title="Recuperar" color={'#5F6E72'}></Button>
+          <Text style={styles.lab}>Usuario o Correo</Text>
+          <TextInput style={styles.datos}></TextInput>
+          <Button
+            style={styles.boton}
+            title="Recuperar"
+            color={'#5F6E72'}
+            onPress={() => {navigation.navigate('Login')}}
+            ></Button>
         </View>
       </View>
     </>
   );
 };
-const styles = StyleSheet.create({ 
-  boton:{
-   height:500
+
+const styles = StyleSheet.create({
+  boton: {
+    height: 500,
   },
   lab:{
     color: 'black',

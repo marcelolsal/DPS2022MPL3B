@@ -1,10 +1,11 @@
-import React from 'react';
-import 'react-native-gesture-handler';
-import Drawer from '../components/Drawer';
+import * as React from 'react';
+import { Text, View, StyleSheet, Image } from 'react-native';
+import Drawer from '../components/Drawer'
+
 
 const Index = () => {
   return (
-        <Drawer />
+    <Drawer/>
   );
 }
 
