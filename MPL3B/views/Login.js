@@ -1,8 +1,10 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import {View, Text, TextInput, StyleSheet, Image, Button} from 'react-native';
 import {useFormik} from 'formik';
 import * as Yup from 'yup';
 import {useNavigation} from '@react-navigation/native';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
 
 import {user, userDetails} from './userBD';
 
@@ -19,7 +21,7 @@ const Login = () => {
         console.log('Error');
       } else {
         console.log('Login correcto');
-        navigation.navigate('Index');
+        navigation.navigate('Index2');
       }
     },
   });
@@ -56,7 +58,7 @@ const Login = () => {
             ¿Has olviddado la contraseña?
           </Text>
           <Button
-            title={'Sign in with Google'}
+            title={'Inicie sesion con Google'}
             onPress={() => {
               GoogleSignin.configure({
                 androidClientId: 'ADD_YOUR_ANDROID_CLIENT_ID_HERE',
@@ -68,6 +70,7 @@ const Login = () => {
                   if (hasPlayService) {
                     GoogleSignin.signIn()
                       .then(userInfo => {
+                        navigation.navigate('Index');
                         console.log(JSON.stringify(userInfo));
                       })
                       .catch(e => {
@@ -131,7 +134,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginBottom: 30,
     fontSize: 22,
-  color: 'black',
+    color: 'black',
   },
   lema: {
     fontSize: 20,
