@@ -125,7 +125,7 @@ const Archivo = () => {
               }}
               style={styles.imageStyle}
             />
-            <Text style={styles.textStyle}>Create PDF</Text>
+            <Text style={styles.textStyle}>Crear PDF con resultados</Text>
           </View>
         </TouchableOpacity>
         <Text style={styles.textStyle}>{filePath}</Text>
@@ -158,9 +158,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   imageStyle: {
-    width: 150,
+    marginLeft:50,
+    width: 120,
     height: 100,
-    margin: 5,
+    margin: 15,
     resizeMode: 'stretch',
   },campos:{
     minHeight: '50%',
