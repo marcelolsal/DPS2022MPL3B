@@ -28,7 +28,7 @@ router.post('/user/create', async (req, res) => {
         cellphone
     });
 
-    res.send("User created");
+    res.send({"msg":"User Created"});
 });
 
 router.get('/user/:username', async (req, res) => {
@@ -64,7 +64,7 @@ router.post('/user/update:id', async (req, res) => {
 
     await db.collection('users').doc(req.params.id).update(req.body);
 
-    res.send("User updated")
+    res.send({"msg":"User Updated"});
 })
 
 module.exports = router;
