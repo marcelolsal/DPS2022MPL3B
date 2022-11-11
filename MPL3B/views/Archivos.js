@@ -35,14 +35,17 @@ const Archivo = () => {
   const [estado, setEstado] = useState('');
   const [estado1, setEstado1] = useState('');
   const data = [
-    {label: 'Pendiente', value: '1'},
-    {label: 'En proceso', value: '2'},
-    {label: 'Entregado', value: '3'},
+    {label: 'Glucosa', value: '1'},
+    {label: 'Colesterol', value: '2'},
+    {label: 'Prueba de embarazo', value: '3'},
+    {label: 'Biometría Hermática', value: '4'},
+    {label: 'Hemoglobina', value: '5'},
+    {label: 'Recuento de Plaquetas', value: '6'},
   ];
   const data1 = [
-    {label1: 'Pendiente', value1: '1'},
-    {label1: 'En proceso', value1: '2'},
-    {label1: 'Entregado', value1: '3'},
+    {label1: 'Mariella Chicas', value1: '1'},
+    {label1: 'Josefino Prudencio', value1: '2'},
+    {label1: 'Margarita Martinez', value1: '3'},
   ];
   const onPress = () => {
     console.log(estado);
@@ -97,8 +100,8 @@ const Archivo = () => {
         <div style=" width:100%; height: 100px; margin: 10px">
     	<div style="width:49%; height: 100px; display: inline-block;">
                    <p>Paciente: ${estado1} </p>
-                   <p>Edad: ${estado1} </p>
-                   <p>Genero: ${estado1} </p>                   
+                   <p>Edad: ${'23'} </p>
+                   <p>Genero: ${'Femenino'} </p>                   
       </div>
       
 	    <div style=" width:49%; height: 100px; display:inline-block;">
